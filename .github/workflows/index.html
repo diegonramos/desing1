@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASA DE LUZ LED | Tienda Oficial</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --amarillo-marca: #FFE600; /* Amarillo intenso */
+            --negro-marca: #111111;
+            --gris-oscuro: #222222;
+            --blanco: #ffffff;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* HEADER PREMIUM */
+        .promo-bar {
+            background-color: var(--amarillo-marca);
+            color: var(--negro-marca);
+            text-align: center;
+            font-size: 0.85rem;
+            padding: 8px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        header {
+            background-color: var(--negro-marca);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; /* El menú te sigue al bajar */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            color: var(--blanco);
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            border: 2px solid var(--amarillo-marca);
+            padding: 5px 15px;
+            letter-spacing: 2px;
+        }
+        
+        .logo span { color: var(--amarillo-marca); }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+        }
+
+        nav a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--amarillo-marca); }
+
+        .icons span { margin-left: 20px; cursor: pointer; color: white; font-size: 1.2rem;}
+
+        /* HERO BANNER - ESTILO CINEMATOGRÁFICO */
+        .hero {
+            /* Foto de fondo oscura para resaltar el texto */
+            background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 600px; /* Más alto para más impacto */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* Alineado a la izquierda es más moderno */
+            padding-left: 10%;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            max-width: 600px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            max-width: 500px;
+            border-left: 4px solid var(--amarillo-marca);
+            padding-left: 15px;
+        }
+
+        /* BOTÓN CON ANIMACIÓN */
+        .btn-primary {
+            background-color: var(--amarillo-marca);
+            color: var(--negro-marca);
+            padding: 18px 50px;
+            font-weight: 800;
+            border: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 230, 0, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(255, 230, 0, 0.6);
+            background-color: #fff; /* Cambio a blanco al pasar el mouse */
+        }
+
+        /* CATEGORÍAS VISUALES */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 60px 5%;
+            margin-top: -50px; /* Efecto flotante sobre el banner */
+            position: relative;
+            z-index: 10;
+        }
+
+        .cat-card {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--amarillo-marca);
+        }
+
+        .cat-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+        .cat-title { font-weight: 700; font-size: 1.2rem; margin: 0; }
+        .cat-link { color: #888; font-size: 0.9rem; margin-top: 10px; display: block; }
+
+        /* PRODUCTOS */
+        .products-title { text-align: center; font-size: 2.5rem; margin: 80px 0 40px; font-weight: 900;}
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 0 5% 80px;
+        }
+
+        .product-item {
+            background: white;
+            transition: 0.3s;
+        }
+        
+        .product-item:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+
+        .p-image {
+            height: 300px;
+            background: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .p-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .product-item:hover .p-image img { transform: scale(1.1); }
+
+        .p-details { padding: 20px; }
+        .p-cat { color: #999; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+        .p-name { font-size: 1.1rem; font-weight: 700; margin: 5px 0; }
+        .p-price { font-size: 1.3rem; color: var(--negro-marca); font-weight: 900; margin-top: 10px; display: block;}
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="promo-bar">
+        ⚡ | ENVÍOS A TODO EL PAÍS 🚚
+    </div>
+
+    <header>
+        <div class="logo">CASA DE <span>LUZ LED</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Apliques</a></li>
+                <li><a href="#">Exterior</a></li>
+                <li><a href="#">Industrial</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <span>🔍</span>
+            <span>🛒 (0)</span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>DISEÑO QUE<br>ILUMINA.</h1>
+        <p>Descubrí la nueva colección de apliques bidireccionales. Minimalismo y potencia para transformar tus ambientes.</p>
+        <button class="btn-primary">VER CATÁLOGO</button>
+    </section>
+
+    <section class="categories">
+        <div class="cat-card">
+            <span class="cat-icon">🏠</span>
+            <h3 class="cat-title">Hogar & Deco</h3>
+            <span class="cat-link">Ver Colección →</span>
+        </div>
+        <div class="cat-card">
+            <span class="cat-icon">🏢</span>
+            <h3 class="cat-title">Comercial</h3>
+            <span class="cat-link">Ver Colección →</span>
+        </div>
+        <div class="cat-card">
+            <span class="cat-icon">🌳</span>
+            <h3 class="cat-title">Exterior & Jardín</h3>
+            <span class="cat-link">Ver Colección →</span>
+        </div>
+    </section>
+
+    <h2 class="products-title">TENDENCIAS 2026</h2>
+    <section class="product-grid">
+        <div class="product-item">
+            <div class="p-image">
+                <img src="https://images.unsplash.com/photo-1540932296774-3bedde0074dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Lámpara">
+            </div>
+            <div class="p-details">
+                <span class="p-cat">APLIQUES DE PARED</span>
+                <div class="p-name">Aplique Cubo Negro Mate</div>
+                <span class="p-price">$28.500</span>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <div class="p-image">
+                <img src="https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Lámpara">
+            </div>
+            <div class="p-details">
+                <span class="p-cat">ILUMINACIÓN DE TECHO</span>
+                <div class="p-name">Colgante Vintage Industrial</div>
+                <span class="p-price">$19.900</span>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <div class="p-image">
+                <img src="https://images.unsplash.com/photo-1526662092594-e98c1e356d63?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Lámpara">
+            </div>
+            <div class="p-details">
+                <span class="p-cat">EXTERIOR</span>
+                <div class="p-name">Reflector LED Alta Potencia</div>
+                <span class="p-price">$45.000</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="whatsapp-float">💬</div>
+
+</body>
+</html>
